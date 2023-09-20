@@ -9,13 +9,14 @@
 }
 
 html {
-    color-scheme: dark;
+    // color-scheme: dark;
     background-color: #191c29;
 }
 
 body {
     display: grid;
-    place-content: center;
+    justify-content: center;
+    align-items: end;
     min-height: 100vh;
     perspective: 1000px;
     #vador {
@@ -25,18 +26,19 @@ body {
         position: relative;
         transform-style: preserve-3d;
         transition: rotate var(--timing) ease;
-
+        translate: 0 -10rem;
         &:hover {
             rotate: x 30deg;
         }
         &:hover #logo {
-            transform: translateZ(60px);
+            transform: translateZ(60px) translatey(-60px);
             rotate: x -30deg;
         }
         &:hover #front-img {
-            transform: translateX(0px) translateZ(150px) translatey(60px) rotateX(-30deg) scale(1);
+            transform: translateZ(150px) translatey(60px) rotateX(-30deg) scale(1);
             bottom: 0;
             opacity: 1;
+            filter: drop-shadow(0 0 10px #000) drop-shadow(0 0 20px #000);
         }
         &::before {
             content: "";
@@ -52,7 +54,7 @@ body {
             content: "";
             position: absolute;
             inset: 1.5rem;
-            translate: 0 ;
+            translate: 0;
             background-color: #111;
             filter: blur(1.5rem);
             z-index: 1;
